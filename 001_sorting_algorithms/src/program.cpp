@@ -5,6 +5,8 @@
 #include "bubble_sort_impl.h"
 #include "insertion_sort_impl.h"
 #include "selection_sort_impl.h"
+#include "quick_sort_recursive_impl.h"
+#include "quick_sort_iterative_impl.h"
 
 int main() {
     using RandType = unsigned int;
@@ -21,9 +23,14 @@ int main() {
         std::cout << v[i] << '\n';
     }
 
+    // this case fails with recursive quick sort so far
+    v = {41, 61, 9, 68, 44, 78, 52, 82, 44, 65};
+
     //BubbleSortImpl<RandType> s;
     //InsertionSortImpl<RandType> s;
-    SelectionSortImpl<RandType> s;
+    //SelectionSortImpl<RandType> s;
+    QuickSortRecursiveImpl<RandType> s;
+    //QuickSortIterativeImpl<RandType> s;
     s.sort_in_place(v);
 
     std::cout << "sorted numbers\n";
