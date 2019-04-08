@@ -4,6 +4,7 @@
 
 #include "bubble_sort_impl.h"
 #include "insertion_sort_impl.h"
+#include "selection_sort_impl.h"
 
 int main() {
     using RandType = unsigned int;
@@ -21,10 +22,11 @@ int main() {
     }
 
     //BubbleSortImpl<RandType> s;
-    InsertionSortImpl<RandType> s;
+    //InsertionSortImpl<RandType> s;
+    SelectionSortImpl<RandType> s;
     s.sort_in_place(v);
 
-    std::cout << "sorted numbers (BubbleSort in place)\n";
+    std::cout << "sorted numbers\n";
     for (size_t i = 0; i < v.size(); ++i) {
         std::cout << v[i] << '\n';
     }
