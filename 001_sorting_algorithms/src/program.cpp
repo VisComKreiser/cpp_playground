@@ -10,6 +10,7 @@
 
 int main() {
     using RandType = unsigned int;
+    using SignedIntegerType = int;
 
     std::random_device rd;
     std::mt19937 generator(rd());
@@ -23,13 +24,10 @@ int main() {
         std::cout << v[i] << '\n';
     }
 
-    // this case fails with recursive quick sort so far
-    v = {41, 61, 9, 68, 44, 78, 52, 82, 44, 65};
-
     //BubbleSortImpl<RandType> s;
     //InsertionSortImpl<RandType> s;
     //SelectionSortImpl<RandType> s;
-    QuickSortRecursiveImpl<RandType> s;
+    QuickSortRecursiveImpl<RandType, SignedIntegerType> s;
     //QuickSortIterativeImpl<RandType> s;
     s.sort_in_place(v);
 

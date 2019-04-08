@@ -2,12 +2,12 @@
 
 #include "i_sorting_algorithm.h"
 
-template <typename T>
+template <typename T, typename SIGNED_INTEGER_TYPE = int>
 class QuickSortRecursiveImpl : public ISortingAlgorithmInPlace<T> {
 public:
     // split data at the pivot element (right most),
     // such that all smaller elements than the pivot are left of it and all larger elements are right of it
-    size_t split(std::vector<T>& data, size_t l, size_t r) const {
+    int split(std::vector<T>& data, SIGNED_INTEGER_TYPE l, SIGNED_INTEGER_TYPE r) const {
         auto i = l;
         auto j = r - 1;
         const auto& pivot = data[r];
@@ -38,7 +38,7 @@ public:
         return i;
     }
 
-    void quicksort_recursive(std::vector<T>& data, size_t l, size_t r) const {
+    void quicksort_recursive(std::vector<T>& data, SIGNED_INTEGER_TYPE l, SIGNED_INTEGER_TYPE r) const {
         if (l < r) {
             // split elements at a pivot element
             const auto pivot = split(data, l, r);
@@ -50,6 +50,6 @@ public:
     }
 
     void sort_in_place(std::vector<T>& data) const override {
-        quicksort_recursive(data, 0, data.size() - 1);
+        quicksort_recursive(data, 0, static_cast<SIGNED_INTEGER_TYPE>(data.size()) - 1);
     }
 };
